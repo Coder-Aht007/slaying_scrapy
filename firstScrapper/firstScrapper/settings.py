@@ -19,6 +19,9 @@ NEWSPIDER_MODULE = 'firstScrapper.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+FEED_FORMAT = "csv"
+FEED_URI = "MobileData.csv"
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
