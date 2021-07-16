@@ -22,6 +22,13 @@ ROBOTSTXT_OBEY = True
 FEED_FORMAT = "csv"
 FEED_URI = "MobileData.csv"
 
+ITEM_PIPELINES = {'firstScrapper.pipelines.MongoDBPipeline': 0}
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "myDb"
+MONGODB_COLLECTION = "scrapy" 
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

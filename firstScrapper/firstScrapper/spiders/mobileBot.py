@@ -15,3 +15,6 @@ class MobilebotSpider(scrapy.Spider):
                 "name" : item[0],
                 "price" : item[1],
             }
+
+
+#mydbCluster74

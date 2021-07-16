@@ -1,13 +1,18 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+import pymongo
 
+from scrapy.utils.project import get_project_settings
+settings = get_project_settings()
 
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+class MongoDBPipeline(object):
 
+    def __init__(self):
+        connection = pymongo.MongoClient(
+            settings['MONGODB_SERVER'],
+            settings['MONGODB_PORT']
+        )
+        db = connection[settings['MONGODB_DB']]
+        self.collection = db[settings['MONGODB_COLLECTION']]
 
-class FirstscrapperPipeline:
     def process_item(self, item, spider):
+        self.collection.insert(item)
         return item
